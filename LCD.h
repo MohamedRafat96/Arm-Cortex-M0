@@ -9,7 +9,7 @@
 #ifndef LCD_H_
 #define LCD_H_
 
-#include "AllHeaders.h"
+#include "externs.h"
 
 
 /**************************************************
@@ -43,12 +43,11 @@ Global function prototypes
 ***************************************************/
 void LCD_Initialize(void);				// Initialization LCD 
 void LCD_Command(uint8_t);				// Send Command To LCD
-
 void write_nibble(uint8_t);				// set/clear the data lines based on input data
 uint8_t lcd_string_write(char **str);
 void lcd_SendCharacter(unsigned char character);
 void lcd_data_write_string(char *data, lcd_line line,unsigned char column, lcd_scrolling scroll_type);
-void lcd_data_write_Integer(uint32_t number, lcd_line line,unsigned char column, lcd_scrolling scroll_type);
+void lcd_data_write_Integer(double number, lcd_line line,unsigned char column, lcd_scrolling scroll_type);
 void delay_ms(unsigned int length_ms);
 void lcd_Ready(void);
 

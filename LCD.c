@@ -6,13 +6,14 @@
 * @Author:	 MohamedRaafat
 ***************************************************/
 
-#include "AllHeaders.h"
+#include "externs.h"
 
 /**************************************************
 File Global (Static) Variables
 ***************************************************/
 static uint8_t scroll_data_stored;
 static char lcd_scroll_msg[50]; // msg to be scrolled
+
 
 /**************************************************
 * @function: delay_ms
@@ -319,11 +320,11 @@ void lcd_data_write_string(char *data, lcd_line line,unsigned char column, lcd_s
 * @return:	 none
 * @brief:    Write data to LCD
 ***************************************************/
-void lcd_data_write_Integer(uint32_t number, lcd_line line,unsigned char column, lcd_scrolling scroll_type)
+void lcd_data_write_Integer(double number, lcd_line line,unsigned char column, lcd_scrolling scroll_type)
 {
 	//lcd_Ready();
 	char number_str[10];  			// Store Numbers
-	sprintf(number_str, "%d", number);  // Store numbers in array of characters 
+	sprintf(number_str, "%2.2f", number);  // Store numbers in array of characters 
 	lcd_data_write_string(number_str , line ,column, scroll_type); // Display Numbers in LCD 
 }
 void lcd_Ready(void)
